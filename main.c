@@ -3,6 +3,8 @@
 
 int main()
 {
-    printf("Hello world!\n");
+    covid_system_login();
+    patient_informations();
+    printf("Here is main!");
     return 0;
 }

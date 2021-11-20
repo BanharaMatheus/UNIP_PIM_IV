@@ -3,7 +3,20 @@
 	<stdio.h>
 	<stdlib.h>
 
-1584205420 source:c:\users\mbanh\unip\projects\unip_pim_iv\main.c
+1637369088 source:c:\users\mbanh\unip\projects\unip_pim_iv\main.c
 	<stdio.h>
 	<stdlib.h>
+
+1637366174 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\paciente.cpp
+	"paciente.h"
+
+1637366515 c:\users\mbanh\unip\projects\unip_pim_iv\include\paciente.h
+
+1637366850 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\paciente_info.c
+
+1637369550 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\patient_info.c
+	<stdio.h>
+
+1637369084 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\login.c
+	<stdio.h>
 
