@@ -36,6 +36,9 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/initial_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/login.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 
-int patient_informations(){
+void patient_informations(){
     char patient_name[80];
     int cpf;
 
@@ -17,6 +17,5 @@ int patient_informations(){
     printf("CPF: ");
     fflush(stdin);
     scanf("%[^\n]s", &cpf);
-    return 0;
 }
 
