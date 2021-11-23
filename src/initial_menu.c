@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 
 void initialize_menu(){
@@ -8,7 +9,7 @@ void initialize_menu(){
 
 
     printf("------------------------------------------------------------------------------------------------------------------------\n\n");
-    printf("Seja bem vindo!\n\n");
+    printf("Seja bem vindo(a)!\n\n");
     printf("------------------------------------------------------------------------------------------------------------------------\n\n");
     printf("Sistema de cadastro de pacientes com COVID-19\n\n");
     printf("________________________________________________________________________________________________________________________\n\n\n");
@@ -45,13 +46,10 @@ void initialize_menu(){
             break;
         }
         if (opcao == 6){
-            printf("opcao = 6\n");
             break;
         }
         else{
             printf("Voce escolheu uma opcao invalida!\n");
-            printf("Escolha sua opcao: ");
-            scanf("%d", &opcao);
         }
     }while(opcao != 1,2,3,4,5,6);
 
