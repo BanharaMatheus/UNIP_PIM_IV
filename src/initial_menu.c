@@ -15,10 +15,9 @@ void initialize_menu(){
     printf("________________________________________________________________________________________________________________________\n\n\n");
     printf("\t 1 - Cadastrar paciente com COVID-19\n");
     printf("\t 2 - Exibir dados de pacientes ja cadastrados\n");
-    printf("\t 3 - Gerar arquivo de texto com informacoes dos pacientes no grupo de risco\n");
-    printf("\t 4 - Mandar informações para o Ministerio da saude\n");
-    printf("\t 5 - Cadastrar um novo usuario no sistema\n");
-    printf("\t 6 - Sair da aplicacao\n\n\n");
+    printf("\t 3 - Mandar informacoes para o Ministerio da saude\n");
+    printf("\t 4 - Cadastrar um novo usuario no sistema\n");
+    printf("\t 5 - Sair da aplicacao\n\n\n");
     printf("------------------------------------------------------------------------------------------------------------------------\n\n");
     do{
         fflush(stdin);
@@ -34,18 +33,14 @@ void initialize_menu(){
             break;
         }
         if (opcao == 3){
-            printf("opcao = 3\n");
-            break;
-        }
-        if (opcao == 4){
             printf("opcao = 4\n");
             break;
         }
-        if (opcao == 5){
+        if (opcao == 4){
             printf("opcao = 5\n");
             break;
         }
-        if (opcao == 6){
+        if (opcao == 5){
             break;
         }
         else{
