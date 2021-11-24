@@ -15,9 +15,10 @@
 
 1637366850 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\paciente_info.c
 
-1637720342 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\patient_info.c
+1637796173 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\patient_info.c
 	<stdio.h>
 	<time.h>
+	<stdbool.h>
 
 1637369084 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\login.c
 	<stdio.h>

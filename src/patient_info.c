@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdbool.h>
 
 void patient_informations(){
     FILE *pont_arq;
-    pont_arq = fopen("db.txt", "a");
+    pont_arq = fopen("dbs/db.txt", "a");
 
     FILE *pont_arq_2;
-    pont_arq_2 = fopen("db_2.txt", "a");
+    pont_arq_2 = fopen("dbs/db_2.txt", "a");
 
     struct ficha_paciente{
         char nome[80], rua[80], cpf_patient[30], bairro[30], cidade[20], estado[20], email[20], comorbidade[40], telefone[20], numero_casa[20], cep[20];
-        int dd_nascimento, mm_nascimento, aa_nascimento, dd_diagnostico, mm_diagnostico, aa_diagnostico, idade;
+        int dd_nascimento, mm_nascimento, aa_nascimento, dd_diagnostico, mm_diagnostico, aa_diagnostico, idade, key_comorb;
     };
     struct ficha_paciente paciente;
 
@@ -24,10 +25,10 @@ void patient_informations(){
     dia=local->tm_mday;
     mes=local->tm_mon+1;
     ano=local->tm_year+1900;
+
     system("cls");
 
     printf("Informacoes necessarias sobre o paciente diagnosticado com COVID-19 \n\n\n");
-
 
     printf("Nome do paciente: ");
     fflush(stdin);
@@ -38,6 +39,9 @@ void patient_informations(){
     printf("Telefone (somente numeros): ");
     fflush(stdin);
     scanf("%[^\n]s", &paciente.telefone);
+    printf("CEP (somente numeros): ");
+    fflush(stdin);
+    scanf("%[^\n]s", &paciente.cep);
     printf("Rua: ");
     fflush(stdin);
     scanf("%[^\n]s", &paciente.rua);
@@ -53,9 +57,11 @@ void patient_informations(){
     printf("Estado: ");
     fflush(stdin);
     scanf("%[^\n]s", &paciente.estado);
-    printf("CEP (somente numeros): ");
     fflush(stdin);
-    scanf("%[^\n]s", &paciente.cep);
+    printf("Comorbidade(se nao houver apenas ENTER): ");
+    if (scanf("%[^\n]s", &paciente.comorbidade) == '\0'){
+        paciente.key_comorb = 0;
+    }else{paciente.key_comorb = 1;}
     printf("Data de nascimento (formato DD/MM/AAAA): ");
     fflush(stdin);
     scanf("%d/%d/%d", &paciente.dd_nascimento, &paciente.mm_nascimento, &paciente.aa_nascimento);
@@ -66,32 +72,27 @@ void patient_informations(){
     fflush(stdin);
     printf("Email do paciente: ");
     scanf("%[^\n]s", &paciente.email);
-    printf("Comorbidade(se nao houver apenas \"N\"): ");
-    fflush(stdin);
-    scanf("%s", &paciente.comorbidade);
 
-
-    if(paciente.comorbidade != "N"){
-        printf("Possui alguma comorbidade");
-        if(paciente.aa_nascimento < (ano-64)){
+    if(paciente.key_comorb == 1){
+        printf("Possui alguma comorbidade\n");
+        if(paciente.aa_nascimento < (ano-4)){
+            if(paciente.mm_nascimento < mes){
+                paciente.idade = ano - paciente.aa_nascimento;
+                fprintf(pont_arq_2, "%s, %s, %s, %s, %d\n", paciente.nome, paciente.cep, paciente.rua, paciente.numero_casa, paciente.idade);
+            }
             if(paciente.mm_nascimento == mes){
-                if(paciente.dd_nascimento == dia){
+                if(paciente.dd_nascimento <= dia){
+                    paciente.idade = ano - paciente.aa_nascimento;
                     fprintf(pont_arq_2, "%s, %s, %s, %s, %d\n", paciente.nome, paciente.cep, paciente.rua, paciente.numero_casa, paciente.idade);
                 }
             }
+        paciente.idade = ano - paciente.aa_nascimento;
         }
     }
-    else{
-        printf("Não possui nenhuma comorbidade");
-    }
 
-
-    fprintf(pont_arq, "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d/%d/%d, %d/%d/%d\n", paciente.nome, paciente.cpf_patient, paciente.telefone, paciente.rua, paciente.numero_casa,
-            paciente.bairro, paciente.cidade, paciente.estado, paciente.cep, paciente.email, paciente.dd_nascimento, paciente.mm_nascimento, paciente.aa_nascimento, paciente.dd_diagnostico, paciente.mm_diagnostico, paciente.aa_diagnostico);
-
-
-
-
+    fprintf(pont_arq, "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d/%d/%d, %d/%d/%d %s\n", paciente.nome, paciente.cpf_patient, paciente.telefone, paciente.rua, paciente.numero_casa,
+            paciente.bairro, paciente.cidade, paciente.estado, paciente.cep, paciente.email, paciente.dd_nascimento, paciente.mm_nascimento, paciente.aa_nascimento,
+            paciente.dd_diagnostico, paciente.mm_diagnostico, paciente.aa_diagnostico, paciente.comorbidade);
 
 
     /*
