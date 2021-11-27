@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-
+/*
 int covid_system_login(){
     printf("Sistema para cadastro de pacientes diagnosticados com COVID-19\n\n");
     printf("Faca seu login\n\n");
@@ -14,3 +14,4 @@ int covid_system_login(){
     scanf("%d", &passwd);
     return 0;
 }
+*/

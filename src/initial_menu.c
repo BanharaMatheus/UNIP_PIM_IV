@@ -16,28 +16,27 @@ void initialize_menu(){
     printf("\t 1 - Cadastrar paciente com COVID-19\n");
     printf("\t 2 - Exibir dados de pacientes ja cadastrados\n");
     printf("\t 3 - Mandar informacoes para o Ministerio da saude\n");
-    printf("\t 4 - Cadastrar um novo usuario no sistema\n");
+    printf("\t 4 - Limpar bancos de dados\n");
     printf("\t 5 - Sair da aplicacao\n\n\n");
     printf("------------------------------------------------------------------------------------------------------------------------\n\n");
     do{
         fflush(stdin);
         printf("Escolha sua opcao: ");
         scanf("%d", &opcao);
-
         if (opcao == 1){
             patient_informations();
             break;
         }
         if (opcao == 2){
-            printf("opcao = 2\n");
+            show_info();
             break;
         }
         if (opcao == 3){
-            printf("opcao = 4\n");
+            send_info();
             break;
         }
         if (opcao == 4){
-            printf("opcao = 5\n");
+            clean_dbs();
             break;
         }
         if (opcao == 5){
@@ -46,6 +45,6 @@ void initialize_menu(){
         else{
             printf("Voce escolheu uma opcao invalida!\n");
         }
-    }while(opcao != 1,2,3,4,5,6);
+    }while(opcao != 1,2,3,4);
 
 }

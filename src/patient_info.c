@@ -10,7 +10,7 @@ void patient_informations(){
     pont_arq_2 = fopen("dbs/db_2.txt", "a");
 
     struct ficha_paciente{
-        char nome[80], rua[80], cpf_patient[30], bairro[30], cidade[20], estado[20], email[20], comorbidade[40], telefone[20], numero_casa[20], cep[20];
+        char nome[99], rua[99], cpf_patient[99], bairro[99], cidade[99], estado[99], email[99], comorbidade[999], telefone[99], numero_casa[99], cep[99];
         int dd_nascimento, mm_nascimento, aa_nascimento, dd_diagnostico, mm_diagnostico, aa_diagnostico, idade, key_comorb;
     };
     struct ficha_paciente paciente;
@@ -58,7 +58,7 @@ void patient_informations(){
     fflush(stdin);
     scanf("%[^\n]s", &paciente.estado);
     fflush(stdin);
-    printf("Comorbidade(se nao houver apenas ENTER): ");
+    printf("Comorbidade(Se houver separe com espacos/se nao houver apenas ENTER): ");
     if (scanf("%[^\n]s", &paciente.comorbidade) == '\0'){
         paciente.key_comorb = 0;
     }else{paciente.key_comorb = 1;}
@@ -74,8 +74,7 @@ void patient_informations(){
     scanf("%[^\n]s", &paciente.email);
 
     if(paciente.key_comorb == 1){
-        printf("Possui alguma comorbidade\n");
-        if(paciente.aa_nascimento < (ano-4)){
+        if(paciente.aa_nascimento < (ano-64)){
             if(paciente.mm_nascimento < mes){
                 paciente.idade = ano - paciente.aa_nascimento;
                 fprintf(pont_arq_2, "%s, %s, %s, %s, %d\n", paciente.nome, paciente.cep, paciente.rua, paciente.numero_casa, paciente.idade);
@@ -94,27 +93,6 @@ void patient_informations(){
             paciente.bairro, paciente.cidade, paciente.estado, paciente.cep, paciente.email, paciente.dd_nascimento, paciente.mm_nascimento, paciente.aa_nascimento,
             paciente.dd_diagnostico, paciente.mm_diagnostico, paciente.aa_diagnostico, paciente.comorbidade);
 
-
-    /*
-    printf("%d\n" , paciente.dd_nascimento);
-    printf("%d\n" , paciente.mm_nascimento);
-    printf("%d\n" , paciente.aa_nascimento);
-    printf("%d\n" , paciente.dd_diagnostico);
-    printf("%d\n" , paciente.mm_diagnostico);
-    printf("%d\n" , paciente.aa_diagnostico);
-    printf("Comorbidade: %s", paciente.comorbidade);
-
-    fprintf(pont_arq, "%d/%d/%d, %d/%d/%d\n", paciente.dd_nascimento, paciente.mm_nascimento, paciente.aa_nascimento, paciente.dd_diagnostico, paciente.mm_diagnostico, paciente.aa_diagnostico);
-    */
-
-    /*
-    Falta concagtenar as datas pra printar no arquivo, ai acabo aquela task
-
-    Depois entra o tratamento de dados
-
-    sprintf(data_nascimento, "%lf", paciente.dd_diagnostico, &paciente.mm_diagnostico, &paciente.aa_diagnostico);
-    fprintf(pont_arq, "%s \n", paciente.dd_diagnostico);
-    */
 
     printf("------------------------------------------------------------------------------------------------------------------------\n\n");
     printf("Paciente cadastrado com sucesso!\n\n");
@@ -158,3 +136,32 @@ void patient_informations(){
 
 }
 
+
+void clean_dbs(){
+    system("cls");
+    printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
+    printf("Isso ira limpar todos os dados cadastrados no sistema\n\n");
+    printf("Tem certeza que deseja fazer isso?\n\n");
+    printf("1 - SIM\n\n");
+    printf("2 - NAO\n\n");
+    printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
+    printf("Caso escolha 1, os DBs serao resetados e voce retornara ao menu");
+    int opcao_4 = 0;
+    do{
+
+        fflush(stdin);
+        printf("Escolha sua opcao: ");
+        scanf("%d", &opcao_4);
+
+        if (opcao_4 == 1){
+            remove("dbs/db.txt");
+            remove("dbs/db_2.txt");
+            initialize_menu();
+        }
+        else{
+            initialize_menu();
+            break;
+        }
+
+    }while(opcao_4 != 1);
+}

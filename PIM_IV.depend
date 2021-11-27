@@ -3,7 +3,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1637630245 source:c:\users\mbanh\unip\projects\unip_pim_iv\main.c
+1637954103 source:c:\users\mbanh\unip\projects\unip_pim_iv\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -15,15 +15,19 @@
 
 1637366850 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\paciente_info.c
 
-1637796173 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\patient_info.c
+1637980424 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\patient_info.c
 	<stdio.h>
 	<time.h>
 	<stdbool.h>
 
-1637369084 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\login.c
+1637979761 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\login.c
 	<stdio.h>
 
-1637715991 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\initial_menu.c
+1637979600 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\initial_menu.c
+	<stdio.h>
+	<stdlib.h>
+
+1637981025 source:c:\users\mbanh\unip\projects\unip_pim_iv\src\print_info.c
 	<stdio.h>
 	<stdlib.h>
 

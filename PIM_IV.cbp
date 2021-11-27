@@ -45,6 +45,9 @@
 		<Unit filename="src/patient_info.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/print_info.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
