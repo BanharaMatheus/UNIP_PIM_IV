@@ -145,7 +145,7 @@ void clean_dbs(){
     printf("1 - SIM\n\n");
     printf("2 - NAO\n\n");
     printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
-    printf("Caso escolha 1, os DBs serao resetados e voce retornara ao menu");
+    printf("Caso escolha 1, os DBs serao resetados e voce retornara ao menu\n");
     int opcao_4 = 0;
     do{
 
